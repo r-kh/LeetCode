@@ -4,14 +4,15 @@ from typing import List
 class Solution:
 
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        my_list = []
-        indexes = []
+        dict = {}
         for i in range(len(nums)):
             num = nums[i]
-            if num <= target:
-                dif = target - num
-                if dif in my_list:
-                    return List[i, indexes[my_list.index(dif)]]
-                else:
-                    my_list.append(num)
-                    indexes.append(i)
+            dif = target - num
+            if dif in dict:
+                return [i, dict[dif]]
+            dict[num] = i
+
+
+s = Solution()
+result = s.twoSum([-3, 4, 3, 90], 0)
+print(result)
